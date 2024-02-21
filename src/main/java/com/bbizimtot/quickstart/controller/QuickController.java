@@ -32,19 +32,19 @@ public class QuickController {
     public String getMember(@RequestParam("empNo") String empNo, @RequestParam("year") int year) {
         log.info("empNo: {}", empNo);
         log.info("year: {}", year);
-        return "ok";
+        return "member ok";
     }
 
     @GetMapping("/company/{id}")
     public String getcompany(@PathVariable("id") String id) {
         log.info("id: {}", id);
-        return "ok";
+        return "company ok";
     }
     
     @PostMapping("/item")
     public String registerItem(@RequestBody String item) {
         log.info("item: {}", item);
-        return "ok";
+        return "item ok";
     }
     
 }
