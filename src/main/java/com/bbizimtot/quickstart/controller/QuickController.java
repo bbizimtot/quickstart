@@ -25,8 +25,9 @@ public class QuickController {
     }
 
     @GetMapping("/member")
-    public String getMember(@RequestParam("empNo") String empNo) {
+    public String getMember(@RequestParam("empNo") String empNo, @RequestParam("year") int year) {
         log.info("empNo: {}", empNo);
+        log.info("year: {}", year);
         return "ok";
     }
     
