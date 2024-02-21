@@ -1,6 +1,7 @@
 package com.bbizimtot.quickstart.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,12 @@ public class QuickController {
     public String getMember(@RequestParam("empNo") String empNo, @RequestParam("year") int year) {
         log.info("empNo: {}", empNo);
         log.info("year: {}", year);
+        return "ok";
+    }
+
+    @GetMapping("/company/{id}")
+    public String getcompany(@PathVariable("id") String id) {
+        log.info("id: {}", id);
         return "ok";
     }
     
