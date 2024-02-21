@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 public class QuickstartApplication {
 
 	public static void main(String[] args) {
-		log.info("Spring Test1");
+		log.info("Spring Test12");
 		SpringApplication.run(QuickstartApplication.class, args);
 	}
 
