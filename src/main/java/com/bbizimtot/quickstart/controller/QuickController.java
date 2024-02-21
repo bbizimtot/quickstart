@@ -1,5 +1,6 @@
 package com.bbizimtot.quickstart.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bbizimtot.quickstart.dto.ItemDto;
 import com.bbizimtot.quickstart.dto.ResponseDto;
+import com.bbizimtot.quickstart.service.QuickService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class QuickController {
     
+    @Autowired
+    private QuickService quickService;
+
     @GetMapping("/dummy")
     public String dummy() {
         log.info("dummy");
@@ -47,8 +52,16 @@ public class QuickController {
     @PostMapping("/item")
     public ResponseDto registerItem(@RequestBody ItemDto item) {
         log.info("item: {}", item);
+
+        boolean b = quickService.registerItem(item);
+        if(b) {
+            ResponseDto responseDto = new ResponseDto();
+            responseDto.setMessage("item ok");
+            return responseDto;
+        }
+
         ResponseDto responseDto = new ResponseDto();
-        responseDto.setMessage("item ok");
+        responseDto.setMessage("item fail");
         return responseDto;
     }
     
