@@ -12,11 +12,13 @@ public class QuickController {
     
     @GetMapping("/dummy")
     public String dummy() {
+        log.info("dummy");
         return "{}";
     }
     
     @GetMapping("/dummy2")
     public String dummy2() {
+        log.info("dummy2");
         return "dummy2";
     }
 }
