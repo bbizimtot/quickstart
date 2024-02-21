@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -35,6 +38,12 @@ public class QuickController {
     @GetMapping("/company/{id}")
     public String getcompany(@PathVariable("id") String id) {
         log.info("id: {}", id);
+        return "ok";
+    }
+    
+    @PostMapping("/item")
+    public String registerItem(@RequestBody String item) {
+        log.info("item: {}", item);
         return "ok";
     }
     
