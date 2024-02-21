@@ -2,12 +2,15 @@ package com.bbizimtot.quickstart.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bbizimtot.quickstart.dto.ItemDto;
+import com.bbizimtot.quickstart.dto.ResponseDto;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 
@@ -32,19 +35,21 @@ public class QuickController {
     public String getMember(@RequestParam("empNo") String empNo, @RequestParam("year") int year) {
         log.info("empNo: {}", empNo);
         log.info("year: {}", year);
-        return "ok";
+        return "member ok";
     }
 
     @GetMapping("/company/{id}")
     public String getcompany(@PathVariable("id") String id) {
         log.info("id: {}", id);
-        return "ok";
+        return "company ok";
     }
     
     @PostMapping("/item")
-    public String registerItem(@RequestBody String item) {
+    public ResponseDto registerItem(@RequestBody ItemDto item) {
         log.info("item: {}", item);
-        return "ok";
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setMessage("item ok");
+        return responseDto;
     }
     
 }
