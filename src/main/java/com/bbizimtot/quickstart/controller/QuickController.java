@@ -66,7 +66,7 @@ public class QuickController {
     }
     
     @GetMapping("/item")
-    public ItemDto getItem(@RequestParam("id") String id) {
+    public ItemDto getItem(@RequestParam(value = "id", defaultValue = "1") String id) {
         ItemDto res = quickService.getItemById(id);
         return res;
     }
