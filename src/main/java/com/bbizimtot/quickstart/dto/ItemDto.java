@@ -10,3 +10,4 @@ public class ItemDto {
 
 //json to dto
 //https://json2csharp.com/code-converters/json-to-pojo
+//https://app.quicktype.io/
